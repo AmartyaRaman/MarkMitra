@@ -93,9 +93,9 @@ const seedDemoUsers = async () => {
   const bcrypt = require('bcryptjs');
 
   const demoUsers = [
-    { name: 'Dr. Ramesh Kumar', email: 'admin@vedaai.in', password: 'admin123', role: 'admin', institution: 'Delhi Public School' },
-    { name: 'Mrs. Ananya Singh', email: 'teacher@vedaai.in', password: 'teacher123', role: 'teacher', institution: 'Delhi Public School' },
-    { name: 'Arjun Sharma', email: 'student@vedaai.in', password: 'student123', role: 'student', institution: 'Delhi Public School' },
+    { name: 'Dr. Ramesh Kumar', email: 'admin@markmitra.in', password: 'admin123', role: 'admin', institution: 'MAIT, Rohini' },
+    { name: 'Mrs. Ananya Singh', email: 'teacher@markmitra.in', password: 'teacher123', role: 'teacher', institution: 'MAIT, Rohini' },
+    { name: 'Arjun Sharma', email: 'student@markmitra.in', password: 'student123', role: 'student', institution: 'MAIT, Rohini' },
   ];
 
   for (const u of demoUsers) {

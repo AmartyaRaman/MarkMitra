@@ -1,6 +1,6 @@
-# 🧠 VedaAI — Academic Intelligence Platform
+# 🧠 MarkMitra — Academic Intelligence Platform
 
-> A full-stack EdTech SaaS clone of [VedaAI](https://myvedaai.com) (incubated at NSRCEL, IIM Bangalore), built with the **PERN stack** (PostgreSQL, Express, React, Node.js), **Vite + Tailwind CSS**, and **Docker multi-stage builds**.
+> An AI-powered Academic Intelligence & Automated Evaluation Platform (incubated at MAIT, Rohini), built with the **PERN stack** (PostgreSQL, Express, React, Node.js), **Vite + Tailwind CSS**, and **Docker multi-stage builds**.
 
 ---
 
@@ -67,7 +67,7 @@ docker compose up --build
 
 ```bash
 # Terminal 1: PostgreSQL (or use local install)
-docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres123 -e POSTGRES_DB=vedaai postgres:16-alpine
+docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres123 -e POSTGRES_DB=markmitra postgres:16-alpine
 
 # Terminal 2: Backend
 cd backend
@@ -87,9 +87,9 @@ npm run dev                  # http://localhost:3000
 
 | Role | Email | Password |
 |---|---|---|
-| Admin | admin@vedaai.in | admin123 |
-| Teacher | teacher@vedaai.in | teacher123 |
-| Student | student@vedaai.in | student123 |
+| Admin | admin@markmitra.in | admin123 |
+| Teacher | teacher@markmitra.in | teacher123 |
+| Student | student@markmitra.in | student123 |
 
 ---
 
@@ -111,12 +111,12 @@ npm run dev                  # http://localhost:3000
     └───────────────────┘ └────────────────┘ └────────────────-┘
               │                    │                    │
               └────────────────────┴────────────────────┘
-                                vedaai-net (bridge)
+                                markmitra-net (bridge)
 ```
 
 ### Multi-Stage Build Strategy
 - **Frontend**: Stage 1 (Node 20 Alpine) → `npm run build` → Stage 2 (Nginx Alpine) serves `/dist`
-- **Backend**: Stage 1 (Node 20 Alpine) → `npm ci --only=production` → Stage 2 (Node 20 Alpine) runs as `vedaai` non-root user
+- **Backend**: Stage 1 (Node 20 Alpine) → `npm ci --only=production` → Stage 2 (Node 20 Alpine) runs as `markmitra` non-root user
 
 ---
 
@@ -163,4 +163,4 @@ Without a key, the platform runs in **demo mode** with realistic mock responses.
 
 ---
 
-*Built as a minor project — inspired by VedaAI (NSRCEL, IIM Bangalore)*
+*Built as a minor project — incubated at MAIT, Rohini*

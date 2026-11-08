@@ -182,7 +182,7 @@ export default function TeacherToolkitPage() {
             id="btn-generate"
             onClick={() => mutation.mutate()}
             disabled={mutation.isPending}
-            className="btn-veda-dark w-full py-3.5 rounded-full font-bold shadow-md flex items-center justify-center gap-2 mt-4"
+            className="btn-markmitra-dark w-full py-3.5 rounded-full font-bold shadow-md flex items-center justify-center gap-2 mt-4"
           >
             {mutation.isPending ? (
               <>

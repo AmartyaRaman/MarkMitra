@@ -59,7 +59,7 @@ export default function Topbar() {
           </div>
           <div className="hidden lg:block text-left">
             <p className="text-xs font-bold text-slate-900 leading-tight">{user?.name || 'Academic User'}</p>
-            <p className="text-[10px] text-slate-400 capitalize">{user?.institution || 'VedaAI Institute'}</p>
+            <p className="text-[10px] text-slate-400 capitalize">{user?.institution || 'MAIT, Rohini'}</p>
           </div>
           <ChevronDown className="w-3.5 h-3.5 text-slate-400 hidden sm:block" />
         </div>

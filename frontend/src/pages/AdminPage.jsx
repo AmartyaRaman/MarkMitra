@@ -8,9 +8,9 @@ import {
 import toast from 'react-hot-toast';
 
 const mockUsers = [
-  { id: 1, name: 'Dr. Ramesh Sharma', email: 'admin@vedaai.in', role: 'admin', institution: 'VedaAI Institute', created_at: '2026-01-15' },
-  { id: 2, name: 'Prof. Ananya Sen', email: 'teacher@vedaai.in', role: 'teacher', institution: 'Delhi Public School', created_at: '2026-02-01' },
-  { id: 3, name: 'Aarav Patel', email: 'student@vedaai.in', role: 'student', institution: 'Delhi Public School', created_at: '2026-02-10' },
+  { id: 1, name: 'Dr. Ramesh Sharma', email: 'admin@markmitra.in', role: 'admin', institution: 'MAIT, Rohini', created_at: '2026-01-15' },
+  { id: 2, name: 'Prof. Ananya Sen', email: 'teacher@markmitra.in', role: 'teacher', institution: 'MAIT, Rohini', created_at: '2026-02-01' },
+  { id: 3, name: 'Aarav Patel', email: 'student@markmitra.in', role: 'student', institution: 'MAIT, Rohini', created_at: '2026-02-10' },
   { id: 4, name: 'Priya Verma', email: 'priya.v@dps.edu', role: 'student', institution: 'Delhi Public School', created_at: '2026-02-15' },
   { id: 5, name: 'Vikram Malhotra', email: 'vikram.m@dps.edu', role: 'teacher', institution: 'Delhi Public School', created_at: '2026-03-01' },
   { id: 6, name: 'Sunita Rao', email: 'sunita.r@dps.edu', role: 'teacher', institution: 'Delhi Public School', created_at: '2026-03-10' },
@@ -175,7 +175,7 @@ export default function AdminPage() {
         <button
           id="btn-add-user"
           onClick={() => setShowAdd(true)}
-          className="btn-veda-dark text-xs px-5 py-2.5 rounded-full flex items-center gap-2"
+          className="btn-markmitra-dark text-xs px-5 py-2.5 rounded-full flex items-center gap-2"
         >
           <Plus className="w-4 h-4" />
           <span>Add User</span>

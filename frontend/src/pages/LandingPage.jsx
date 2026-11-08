@@ -15,12 +15,10 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 bg-[#edf5fb]/95 backdrop-blur-md border-b border-slate-200/60 h-16 flex items-center px-6 sm:px-16">
         <div className="w-full flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-[#18181b] flex items-center justify-center text-white font-black shadow-sm group-hover:scale-105 transition-transform">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white">
-                <path d="M12 22L2 4h4.5l5.5 11.5L17.5 4H22L12 22z" />
-              </svg>
+            <div className="w-8 h-8 rounded-lg bg-[#18181b] flex items-center justify-center text-white font-black text-sm shadow-sm group-hover:scale-105 transition-transform">
+              M
             </div>
-            <span className="font-extrabold text-xl text-slate-900 tracking-tight">VedaAI</span>
+            <span className="font-extrabold text-xl text-slate-900 tracking-tight">MarkMitra</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium">
@@ -35,7 +33,7 @@ export default function LandingPage() {
             <Link to="/login" className="hidden sm:inline-flex text-sm font-semibold text-slate-700 hover:text-slate-900 px-3 py-1.5 transition-colors">
               Sign In
             </Link>
-            <button onClick={() => setMeetingModal(true)} className="btn-veda-dark text-xs sm:text-sm px-5 py-2.5 rounded-full font-bold shadow-sm">
+            <button onClick={() => setMeetingModal(true)} className="btn-markmitra-dark text-xs sm:text-sm px-5 py-2.5 rounded-full font-bold shadow-sm">
               Contact Us
             </button>
           </div>
@@ -47,8 +45,8 @@ export default function LandingPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-gradient-to-b from-blue-100/70 via-sky-50/30 to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
 
         <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-sm text-xs font-semibold text-slate-700">
-          <div className="w-4 h-4 rounded-full bg-red-800 text-white flex items-center justify-center text-[8px] font-black leading-none">M</div>
-          <span>Incubated at MAIT, Delhi</span>
+          <div className="w-4 h-4 rounded-full bg-[#ff5c00] text-white flex items-center justify-center text-[8px] font-black leading-none">M</div>
+          <span>Incubated at MAIT, Rohini</span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] mb-5">
@@ -59,14 +57,14 @@ export default function LandingPage() {
         </h1>
 
         <p className="max-w-xl mx-auto text-slate-500 text-base sm:text-lg leading-relaxed mb-10">
-          VedaAI helps educational institutions elevate student performance, empower teachers, and increase academic results powered by AI.
+          MarkMitra helps educational institutions elevate student performance, empower teachers, and increase academic results powered by AI.
         </p>
 
         <div className="flex flex-row items-center justify-center gap-4 mb-16">
-          <Link to="/login" id="btn-hero-free-for-teachers" className="btn-veda-dark px-7 py-3 text-sm rounded-full shadow-md font-bold hover:scale-[1.02] transition-transform">
+          <Link to="/login" id="btn-hero-free-for-teachers" className="btn-markmitra-dark px-7 py-3 text-sm rounded-full shadow-md font-bold hover:scale-[1.02] transition-transform">
             Free for Teachers
           </Link>
-          <button onClick={() => setMeetingModal(true)} id="btn-hero-book-meeting" className="btn-veda-light px-7 py-3 text-sm rounded-full shadow-sm font-semibold hover:bg-slate-50 transition-all">
+          <button onClick={() => setMeetingModal(true)} id="btn-hero-book-meeting" className="btn-markmitra-light px-7 py-3 text-sm rounded-full shadow-sm font-semibold hover:bg-slate-50 transition-all">
             Book a meeting
           </button>
         </div>
@@ -79,8 +77,8 @@ export default function LandingPage() {
               <div className="px-5 py-3 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1.5">
-                    <div className="w-5 h-5 rounded bg-[#18181b] flex items-center justify-center text-white text-[10px] font-black">V</div>
-                    <span className="font-extrabold text-xs text-slate-900">VedaAI</span>
+                    <div className="w-5 h-5 rounded bg-[#18181b] flex items-center justify-center text-white text-[10px] font-black">M</div>
+                    <span className="font-extrabold text-xs text-slate-900">MarkMitra</span>
                   </div>
                   <span className="text-slate-300">|</span>
                   <div className="flex items-center gap-1.5 text-xs text-slate-600 font-semibold">
@@ -220,9 +218,9 @@ export default function LandingPage() {
       <footer className="bg-[#121826] text-white py-12 px-6 sm:px-16 mt-auto">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-slate-400">
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-lg bg-[#ff5c00] flex items-center justify-center text-white text-xs font-black">V</div>
-            <span className="font-bold text-white text-sm">VedaAI</span>
-            <span>• Incubated at NSRCEL, IIM Bangalore</span>
+            <div className="w-7 h-7 rounded-lg bg-[#ff5c00] flex items-center justify-center text-white text-xs font-black">M</div>
+            <span className="font-bold text-white text-sm">MarkMitra</span>
+            <span>â€¢ Incubated at MAIT, Rohini</span>
           </div>
           <div className="flex items-center gap-6">
             <Link to="/login" className="hover:text-white transition-colors">Teacher Portal</Link>
@@ -245,7 +243,7 @@ export default function LandingPage() {
               <input type="text" placeholder="Full Name" className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#ff5c00]" />
               <input type="email" placeholder="Official Email Address" className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#ff5c00]" />
               <input type="text" placeholder="School / College / Institution" className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#ff5c00]" />
-              <button onClick={() => { alert('Thank you! We will reach out within 24 hours.'); setMeetingModal(false); }} className="btn-veda-orange w-full rounded-xl py-3.5 text-sm font-bold shadow-md">
+              <button onClick={() => { alert('Thank you! We will reach out within 24 hours.'); setMeetingModal(false); }} className="btn-markmitra-orange w-full rounded-xl py-3.5 text-sm font-bold shadow-md">
                 Confirm Request
               </button>
             </div>

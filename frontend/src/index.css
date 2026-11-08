@@ -13,11 +13,11 @@
   --color-primary-800: #9a3205;
   --color-primary-900: #7c2c0a;
 
-  --color-veda-dark: #121826;
-  --color-veda-black: #18181b;
-  --color-veda-ice: #edf5fb;
-  --color-veda-orange: #ff5c00;
-  --color-veda-peach: #ffede1;
+  --color-markmitra-dark: #121826;
+  --color-markmitra-black: #18181b;
+  --color-markmitra-ice: #edf5fb;
+  --color-markmitra-orange: #ff5c00;
+  --color-markmitra-peach: #ffede1;
 
   --font-family-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   --font-family-body: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -47,29 +47,29 @@ body {
   overflow-x: hidden;
 }
 
-/* ── VedaAI Core Styles ────────────────────────────────── */
-.veda-bg-gradient {
+/* ── MarkMitra Core Styles ────────────────────────────────── */
+.markmitra-bg-gradient {
   background: radial-gradient(130% 90% at 50% 0%, #d8ecf8 0%, #edf5fc 40%, #f6faff 100%);
 }
 
-.veda-card {
+.markmitra-card {
   background-color: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.9);
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
   border-radius: 1.25rem;
 }
 
-.veda-card-hover {
+.markmitra-card-hover {
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.veda-card-hover:hover {
+.markmitra-card-hover:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
   border-color: rgba(203, 213, 225, 0.9);
 }
 
 /* ── Buttons ────────────────────────────────────────────── */
-.btn-veda-dark {
+.btn-markmitra-dark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -85,13 +85,13 @@ body {
   border: 1px solid transparent;
   cursor: pointer;
 }
-.btn-veda-dark:hover {
+.btn-markmitra-dark:hover {
   background-color: #000000;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
-.btn-veda-light {
+.btn-markmitra-light {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -107,13 +107,13 @@ body {
   transition: all 0.2s ease;
   cursor: pointer;
 }
-.btn-veda-light:hover {
+.btn-markmitra-light:hover {
   background-color: #f8fafc;
   border-color: #cbd5e1;
   transform: translateY(-1px);
 }
 
-.btn-veda-orange {
+.btn-markmitra-orange {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -129,7 +129,7 @@ body {
   border: none;
   cursor: pointer;
 }
-.btn-veda-orange:hover {
+.btn-markmitra-orange:hover {
   background-color: #ea4e00;
   transform: translateY(-1px);
   box-shadow: 0 6px 22px rgba(255, 92, 0, 0.35);

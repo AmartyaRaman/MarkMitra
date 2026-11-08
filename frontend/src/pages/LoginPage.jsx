@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 const demoAccounts = [
   {
     role: 'Admin',
-    email: 'admin@vedaai.in',
+    email: 'admin@markmitra.in',
     password: 'admin123',
     icon: Shield,
     color: 'bg-purple-100 text-purple-700 border-purple-200',
@@ -20,7 +20,7 @@ const demoAccounts = [
   },
   {
     role: 'Teacher',
-    email: 'teacher@vedaai.in',
+    email: 'teacher@markmitra.in',
     password: 'teacher123',
     icon: BookOpen,
     color: 'bg-[#ffede1] text-[#ff5c00] border-[#ffd8c2]',
@@ -29,7 +29,7 @@ const demoAccounts = [
   },
   {
     role: 'Student',
-    email: 'student@vedaai.in',
+    email: 'student@markmitra.in',
     password: 'student123',
     icon: GraduationCap,
     color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
@@ -40,7 +40,7 @@ const demoAccounts = [
 
 export default function LoginPage() {
   const [selectedRole, setSelectedRole] = useState('Admin');
-  const [email, setEmail] = useState('admin@vedaai.in');
+  const [email, setEmail] = useState('admin@markmitra.in');
   const [password, setPassword] = useState('admin123');
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -62,7 +62,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       await login(email, password);
-      toast.success('Welcome back to VedaAI!');
+      toast.success('Welcome back to MarkMitra!');
       navigate('/dashboard');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Login failed. Check your email and password.');
@@ -102,19 +102,17 @@ export default function LoginPage() {
         {/* Top: Logo & Incubated Tag */}
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-[#18181b] flex items-center justify-center text-white font-black shadow-sm">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
-                <path d="M12 22L2 4h4.5l5.5 11.5L17.5 4H22L12 22z" />
-              </svg>
+            <div className="w-8 h-8 rounded-lg bg-[#18181b] flex items-center justify-center text-white font-black text-sm shadow-sm">
+              M
             </div>
-            <span className="font-extrabold text-xl text-slate-900 tracking-tight">VedaAI</span>
+            <span className="font-extrabold text-xl text-slate-900 tracking-tight">MarkMitra</span>
           </Link>
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 border border-slate-200 shadow-2xs text-xs font-semibold text-slate-700">
-            <div className="w-4 h-4 rounded-full bg-red-800 text-white flex items-center justify-center text-[9px] font-black">
-              IIM
+            <div className="w-4 h-4 rounded-full bg-[#ff5c00] text-white flex items-center justify-center text-[9px] font-black">
+              M
             </div>
-            <span>Incubated at IIM Bangalore</span>
+            <span>Incubated at MAIT, Rohini</span>
           </div>
         </div>
 
@@ -262,7 +260,7 @@ export default function LoginPage() {
                 type="button"
                 onClick={() => handleQuickLogin(currentRoleObj)}
                 disabled={loading}
-                className="btn-veda-dark text-xs px-3.5 py-1.5 rounded-full font-bold flex items-center gap-1 shrink-0"
+                className="btn-markmitra-dark text-xs px-3.5 py-1.5 rounded-full font-bold flex items-center gap-1 shrink-0"
               >
                 <span>Login</span>
                 <ArrowRight className="w-3 h-3" />
@@ -291,7 +289,7 @@ export default function LoginPage() {
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="e.g. admin@vedaai.in"
+                  placeholder="e.g. admin@markmitra.in"
                   style={{ paddingLeft: '44px' }}
                   className="w-full h-12 bg-slate-50 border border-slate-200 rounded-xl pr-4 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#ff5c00] focus:bg-white focus:ring-2 focus:ring-orange-100 transition-all font-medium"
                 />
@@ -333,10 +331,10 @@ export default function LoginPage() {
               id="btn-login"
               type="submit"
               disabled={loading}
-              className="btn-veda-dark w-full py-4 rounded-full text-base font-bold shadow-lg flex items-center justify-center gap-2 cursor-pointer mt-2"
+              className="btn-markmitra-dark w-full py-4 rounded-full text-base font-bold shadow-lg flex items-center justify-center gap-2 cursor-pointer mt-2"
             >
               {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : null}
-              {loading ? 'Authenticating...' : 'Sign In to VedaAI'}
+              {loading ? 'Authenticating...' : 'Sign In to MarkMitra'}
             </button>
 
           </form>
@@ -345,7 +343,7 @@ export default function LoginPage() {
 
         {/* Bottom Legal / Trust Info */}
         <div className="pt-8 text-center text-xs text-slate-400">
-          <span>Protected by VedaAI Enterprise Security • NEP 2020 Compliant</span>
+          <span>Protected by MarkMitra Enterprise Security • NEP 2020 Compliant • MAIT, Rohini</span>
         </div>
 
       </div>

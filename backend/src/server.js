@@ -47,7 +47,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../../uploads')));
 // Health check
 app.get('/api/health', (req, res) => res.json({
   status: 'ok',
-  service: 'VedaAI Backend',
+  service: 'MarkMitra Backend',
   version: '1.0.0',
   timestamp: new Date().toISOString(),
 }));
@@ -72,7 +72,7 @@ const start = async () => {
     await connectDB();
     await initDB();
     app.listen(PORT, '0.0.0.0', () => {
-      console.log(`\n🧠 VedaAI Backend running on http://0.0.0.0:${PORT}`);
+      console.log(`\n🧠 MarkMitra Backend running on http://0.0.0.0:${PORT}`);
       console.log(`   Environment: ${process.env.NODE_ENV}`);
       console.log(`   Gemini AI: ${process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'your_gemini_api_key_here' ? '✅ Connected' : '⚠️  Not configured (demo mode)'}\n`);
     });

@@ -134,7 +134,7 @@ export default function GraderPage() {
           id="btn-analyze"
           onClick={() => mutation.mutate()}
           disabled={mutation.isPending}
-          className="btn-veda-dark w-full py-4 rounded-full text-base font-bold shadow-lg flex items-center justify-center gap-2"
+          className="btn-markmitra-dark w-full py-4 rounded-full text-base font-bold shadow-lg flex items-center justify-center gap-2"
         >
           {mutation.isPending ? (
             <>
@@ -174,7 +174,7 @@ export default function GraderPage() {
 
               <button
                 onClick={() => { setFile(null); setResult(null); }}
-                className="btn-veda-light text-xs px-5 py-2.5 rounded-full"
+                className="btn-markmitra-light text-xs px-5 py-2.5 rounded-full"
               >
                 Grade Another Sheet
               </button>

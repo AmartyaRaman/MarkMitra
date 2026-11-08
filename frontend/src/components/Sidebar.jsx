@@ -30,16 +30,14 @@ export default function Sidebar() {
       {/* Logo */}
       <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-[#18181b] flex items-center justify-center text-white font-black shadow-sm">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
-              <path d="M12 22L2 4h4.5l5.5 11.5L17.5 4H22L12 22z" />
-            </svg>
+          <div className="w-8 h-8 rounded-lg bg-[#18181b] flex items-center justify-center text-white font-black text-sm shadow-sm">
+            M
           </div>
           <div>
             <h1 className="font-extrabold text-lg text-slate-900 tracking-tight leading-none">
-              VedaAI
+              MarkMitra
             </h1>
-            <p className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase mt-0.5">Academic Intelligence</p>
+            <p className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase mt-0.5">Academic Intelligence • MAIT</p>
           </div>
         </Link>
       </div>

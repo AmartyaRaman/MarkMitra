@@ -13,7 +13,7 @@ RUN npm ci --only=production --frozen-lockfile
 FROM node:20-alpine AS runner
 
 # Security: non-root user
-RUN addgroup -g 1001 -S nodejs && adduser -S vedaai -u 1001
+RUN addgroup -g 1001 -S nodejs && adduser -S markmitra -u 1001
 
 WORKDIR /app
 
@@ -21,13 +21,13 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 
 # Copy source files
-COPY --chown=vedaai:nodejs src/ ./src/
-COPY --chown=vedaai:nodejs package.json ./
+COPY --chown=markmitra:nodejs src/ ./src/
+COPY --chown=markmitra:nodejs package.json ./
 
 # Create uploads directory
-RUN mkdir -p uploads/answer-sheets && chown -R vedaai:nodejs uploads/
+RUN mkdir -p uploads/answer-sheets && chown -R markmitra:nodejs uploads/
 
-USER vedaai
+USER markmitra
 
 EXPOSE 5000
 

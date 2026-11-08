@@ -93,10 +93,10 @@ export default function DashboardPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Link to="/assessments" className="btn-veda-dark text-xs px-4 py-2.5 rounded-full">
+          <Link to="/assessments" className="btn-markmitra-dark text-xs px-4 py-2.5 rounded-full">
             New Assessment
           </Link>
-          <Link to="/grader" className="btn-veda-orange text-xs px-4 py-2.5 rounded-full">
+          <Link to="/grader" className="btn-markmitra-orange text-xs px-4 py-2.5 rounded-full">
             AI Grader
           </Link>
         </div>

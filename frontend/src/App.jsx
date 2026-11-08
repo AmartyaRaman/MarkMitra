@@ -24,7 +24,7 @@ function ProtectedRoute({ children, roles }) {
     <div className="min-h-screen bg-surface-900 flex items-center justify-center">
       <div className="flex flex-col items-center gap-4">
         <div className="w-16 h-16 rounded-full border-4 border-primary-600 border-t-transparent animate-spin" />
-        <p className="text-slate-400 text-sm">Loading VedaAI...</p>
+        <p className="text-slate-400 text-sm">Loading MarkMitra...</p>
       </div>
     </div>
   );
