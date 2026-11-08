@@ -1,0 +1,29 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Env files
+.env
+.env.local
+
+# Build outputs
+frontend/dist/
+frontend/.vite/
+
+# Uploads
+backend/uploads/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+.dockerignore

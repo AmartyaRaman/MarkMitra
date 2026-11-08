@@ -1,0 +1,14 @@
+{
+  "name": "vedaai-backend",
+  "version": "1.0.0",
+  "description": "VedaAI EdTech SaaS Backend API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "node -e \"require('./src/config/migrate').initDB().then(() => process.exit(0)).catch(e => { console.error(e); process.exit(1); })\""
+  },
+  "keywords": ["edtech", "vedaai", "backend"],
+  "author": "",
+  "license": "ISC"
+}
