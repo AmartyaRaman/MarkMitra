@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import api from '../lib/api';
+import api, { isDemoSession } from '../lib/api';
 import { Plus, Search, FileText, Clock, CheckCircle, ChevronRight, X, Loader2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -22,10 +22,19 @@ function CreateModal({ open, onClose }) {
   const [form, setForm] = useState({ title: '', subject: '', class: '', total_marks: 100, due_date: '' });
 
   const mutation = useMutation({
-    mutationFn: (data) => api.post('/assessments', data),
+    mutationFn: async (data) => {
+      // Demo sessions have no valid backend token: add the assessment locally instead.
+      if (isDemoSession()) {
+        const created = { id: Date.now(), ...data, status: 'draft', submissions: 0 };
+        qc.setQueryData(['assessments'], (old = mockAssessments) => [created, ...old]);
+        return created;
+      }
+      return api.post('/assessments', data);
+    },
     onSuccess: () => {
       toast.success('Assessment created successfully!');
-      qc.invalidateQueries(['assessments']);
+      // In demo mode a refetch would fail and fall back to the mock list, dropping the new item.
+      if (!isDemoSession()) qc.invalidateQueries({ queryKey: ['assessments'] });
       onClose();
     },
     onError: () => toast.error('Failed to create assessment'),

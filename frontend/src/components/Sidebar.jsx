@@ -2,7 +2,7 @@ import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import {
   LayoutDashboard, ClipboardList, BookOpen,
-  BarChart3, Shield, LogOut, Brain, Pencil, Home
+  BarChart3, Shield, LogOut, Brain, Pencil, Home, X
 } from 'lucide-react';
 
 const navItems = [
@@ -14,7 +14,7 @@ const navItems = [
   { to: '/admin', icon: Shield, label: 'Admin Panel', roles: ['admin'] },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ open = false, onClose = () => {} }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -26,7 +26,21 @@ export default function Sidebar() {
   const userNav = navItems.filter(item => item.roles.includes(user?.role));
 
   return (
-    <aside className="w-64 flex-shrink-0 bg-white border-r border-slate-200/80 flex flex-col h-full shadow-sm z-20">
+    <>
+    {/* Backdrop for the mobile drawer */}
+    {open && (
+      <div
+        className="fixed inset-0 z-30 bg-black/40 backdrop-blur-sm lg:hidden"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+    )}
+    <aside
+      className={`fixed inset-y-0 left-0 z-40 w-64 max-w-[85vw] transform transition-transform duration-200 ease-out
+        lg:static lg:z-20 lg:translate-x-0 lg:max-w-none
+        ${open ? 'translate-x-0' : '-translate-x-full'}
+        flex-shrink-0 bg-white border-r border-slate-200/80 flex flex-col h-full shadow-sm`}
+    >
       {/* Logo */}
       <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
@@ -40,6 +54,14 @@ export default function Sidebar() {
             <p className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase mt-0.5">Academic Intelligence • MAIT</p>
           </div>
         </Link>
+        <button
+          type="button"
+          onClick={onClose}
+          className="lg:hidden p-1.5 -mr-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+          aria-label="Close menu"
+        >
+          <X className="w-5 h-5" />
+        </button>
       </div>
 
       {/* Navigation */}
@@ -51,6 +73,7 @@ export default function Sidebar() {
             key={to}
             to={to}
             id={`nav-${label.toLowerCase().replace(/\s+/g, '-')}`}
+            onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200
                ${isActive
@@ -101,5 +124,6 @@ export default function Sidebar() {
         </button>
       </div>
     </aside>
+    </>
   );
 }

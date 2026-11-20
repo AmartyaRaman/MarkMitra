@@ -1,33 +1,55 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import api from '../lib/api';
+import api, { TOKEN_KEY, DEMO_USER_KEY, DEMO_TOKEN_PREFIX } from '../lib/api';
 
 const AuthContext = createContext(null);
+
+const clearSession = () => {
+  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(DEMO_USER_KEY);
+  delete api.defaults.headers.common['Authorization'];
+};
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('markmitra_token');
-    if (token) {
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      api.get('/auth/me')
-        .then(res => setUser(res.data.user))
-        .catch(() => {
-          localStorage.removeItem('markmitra_token');
-          delete api.defaults.headers.common['Authorization'];
-        })
-        .finally(() => setLoading(false));
-    } else {
+    const token = localStorage.getItem(TOKEN_KEY);
+    if (!token) {
       setLoading(false);
+      return;
     }
+
+    // Demo sessions can't be validated by the backend; restore them locally.
+    if (token.startsWith(DEMO_TOKEN_PREFIX)) {
+      try {
+        const demoUser = JSON.parse(localStorage.getItem(DEMO_USER_KEY));
+        if (demoUser) {
+          api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+          setUser(demoUser);
+        } else {
+          clearSession();
+        }
+      } catch {
+        clearSession();
+      }
+      setLoading(false);
+      return;
+    }
+
+    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    api.get('/auth/me')
+      .then(res => setUser(res.data.user))
+      .catch(clearSession)
+      .finally(() => setLoading(false));
   }, []);
 
   const login = async (email, password) => {
     try {
       const res = await api.post('/auth/login', { email, password });
       const { token, user } = res.data;
-      localStorage.setItem('markmitra_token', token);
+      localStorage.removeItem(DEMO_USER_KEY);
+      localStorage.setItem(TOKEN_KEY, token);
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setUser(user);
       return user;
@@ -47,8 +69,9 @@ export function AuthProvider({ children }) {
 
       if (demoUsers[email] && (!password || password === validDemoPasswords[email])) {
         const mockUser = demoUsers[email];
-        const mockToken = 'demo-mock-token-' + Date.now();
-        localStorage.setItem('markmitra_token', mockToken);
+        const mockToken = DEMO_TOKEN_PREFIX + Date.now();
+        localStorage.setItem(TOKEN_KEY, mockToken);
+        localStorage.setItem(DEMO_USER_KEY, JSON.stringify(mockUser));
         api.defaults.headers.common['Authorization'] = `Bearer ${mockToken}`;
         setUser(mockUser);
         return mockUser;
@@ -58,8 +81,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    localStorage.removeItem('markmitra_token');
-    delete api.defaults.headers.common['Authorization'];
+    clearSession();
     setUser(null);
   };
 

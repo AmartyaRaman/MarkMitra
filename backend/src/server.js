@@ -16,6 +16,26 @@ const graderRouter = require('./routes/grader');
 const aiRouter = require('./routes/ai');
 const dashboardRouter = require('./routes/dashboard');
 
+// Refuse to boot in production with missing or default secrets.
+if (process.env.NODE_ENV === 'production') {
+  const problems = [];
+  const jwt = process.env.JWT_SECRET || '';
+  if (jwt.length < 32 || /change-me|secret/i.test(jwt)) {
+    problems.push('JWT_SECRET must be a random string of at least 32 characters');
+  }
+  const dbPass = process.env.DB_PASSWORD || '';
+  if (!dbPass || ['postgres', 'postgres123', 'change-me', 'password', 'yourpassword'].includes(dbPass)) {
+    problems.push('DB_PASSWORD must be set to a strong, non-default value');
+  }
+  if (!process.env.ALLOWED_ORIGINS) {
+    problems.push('ALLOWED_ORIGINS must list the site origin(s), e.g. http://your-domain.com');
+  }
+  if (problems.length) {
+    console.error('[Fatal] Insecure production configuration:\n  - ' + problems.join('\n  - '));
+    process.exit(1);
+  }
+}
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 

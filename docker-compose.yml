@@ -1,7 +1,6 @@
 version: "3.9"
 
 services:
-  # ── PostgreSQL Database ──────────────────────────────────
   postgres:
     image: postgres:16-alpine
     container_name: markmitra-postgres
@@ -22,8 +21,7 @@ services:
       start_period: 20s
     networks:
       - markmitra-net
-
-  # ── Backend API (Express + Node.js) ──────────────────────
+      
   backend:
     build:
       context: ./backend
@@ -37,7 +35,7 @@ services:
     env_file:
       - ./backend/.env
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
       DB_HOST: postgres
       DB_PORT: 5432
       DB_NAME: markmitra
@@ -56,7 +54,6 @@ services:
       retries: 3
       start_period: 40s
 
-  # ── Frontend (React + Vite → Nginx) ──────────────────────
   frontend:
     build:
       context: ./frontend

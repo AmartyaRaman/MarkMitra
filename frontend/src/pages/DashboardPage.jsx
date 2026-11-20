@@ -86,7 +86,7 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/60">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Good {new Date().getHours() < 12 ? 'morning' : new Date().getHours() < 17 ? 'afternoon' : 'evening'}, {user?.name?.split(' ')[0]} 👋
           </h1>
           <p className="text-slate-500 mt-1 text-sm">Here's your institutional intelligence overview and active metrics for today.</p>
@@ -113,7 +113,7 @@ export default function DashboardPage() {
       {/* Charts Row */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
         {/* Performance Trend */}
-        <div className="xl:col-span-2 bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm">
+        <div className="xl:col-span-2 bg-white rounded-2xl p-4 sm:p-7 border border-slate-200/80 shadow-sm">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-base font-bold text-slate-900">Performance Trend</h2>
